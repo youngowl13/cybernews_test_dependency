@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 import codecs
 import os
 
-here = os.path.abspath(os.path.dirname(__file__))
+_directory = os.path.abspath(os.path.dirname(__file__))
 
-with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+with codecs.open(os.path.join(_directory, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.7'
-DESCRIPTION = 'Latest Cyber and Hacking News'
-LONG_DESCRIPTION = 'Python package and API that provides Latest Cyber and Hacking News from various websites using Web-Scraping.'
+VERSION = '1.0.8'
+DESCRIPTION = 'Get latest Cyber Security updates curated from different sources under one roof.'
+LONG_DESCRIPTION = 'Python package and API that provides latest Cyber Security updates from various sources under one roof and use Web-Scraping under the hood.'
 
 """Setting up"""
 
@@ -22,8 +22,9 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    install_requires=['bs4', 'requests', 'lxml'],
-    keywords=['python', 'web scraping', 'news', 'cyber news', 'hacker news' , 'hacking' , 'cyber' , 'free' , 'open source' , 'latest news' , 'project' , 'api' , 'REST-API'],
+    install_requires=['bs4', 'requests'],
+    keywords=['python', 'web scraping', 'news', 'cyber news', 'hacker news', 'hacking',
+              'cyber', 'free', 'open source', 'latest news', 'project', 'api', 'REST-API'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",

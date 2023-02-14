@@ -7,11 +7,13 @@ _directory = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(_directory, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '1.0.8'
+VERSION = '1.1.0'
 DESCRIPTION = 'Get latest Cyber Security updates curated from different sources under one roof.'
 LONG_DESCRIPTION = 'Python package and API that provides latest Cyber Security updates from various sources under one roof and use Web-Scraping under the hood.'
 
-"""Setting up"""
+"""
+    Setting up
+"""
 
 setup(
     name="cybernews",
@@ -22,9 +24,9 @@ setup(
     long_description_content_type="text/markdown",
     long_description=long_description,
     packages=find_packages(),
-    install_requires=['bs4', 'requests'],
+    install_requires=['beautifulsoup4', 'lxml', 'httpx', 'requests'],
     keywords=['python', 'web scraping', 'news', 'cyber news', 'hacker news', 'hacking',
-              'cyber', 'free', 'open source', 'latest news', 'project', 'api', 'REST-API'],
+              'cyber', 'free', 'open source', 'latest news', 'project', 'api', 'REST-API', 'cyber security', 'cybersecurity', 'updates', 'news', 'cyber attacks', 'cyber threats', 'online security'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",

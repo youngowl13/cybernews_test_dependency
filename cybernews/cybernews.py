@@ -12,7 +12,17 @@ class CyberNews:
             {
                 "general": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/internet": {
+                        "https://ciosea.economictimes.indiatimes.com/news/next-gen-technologies": {
+                            "headlines": ".descBx h3 a",
+                            "author": ".metaTx",
+                            "fullNews": ".descBx p",
+                            "newsImg": "figure.avtar a img",
+                            "newsURL": ".descBx a",
+                            "date": None,
+                        }
+                    },
+                    {
+                        "https://telecom.economictimes.indiatimes.com/news/internet": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -21,7 +31,7 @@ class CyberNews:
                             "date": None,
                         }
                     }
-                ]
+                ],
             },
             {
                 "dataBreach": [
@@ -34,8 +44,18 @@ class CyberNews:
                             "newsURL": "a.story-link",
                             "date": ".item-label",
                         }
-                    }
-                ]
+                    },
+                    {
+                        "https://ciso.economictimes.indiatimes.com/tag/data+breaches": {
+                            "headlines": ".descBx h3 a",
+                            "author": ".metaTx",
+                            "fullNews": ".descBx p",
+                            "newsImg": "figure.avtar a img",
+                            "newsURL": ".descBx a",
+                            "date": None,
+                        }
+                    },
+                ],
             },
             {
                 "cyberAttack": [
@@ -48,8 +68,18 @@ class CyberNews:
                             "newsURL": "a.story-link",
                             "date": ".item-label",
                         }
-                    }
-                ]
+                    },
+                    {
+                        "https://ciso.economictimes.indiatimes.com/news/cyberwarfare": {
+                            "headlines": ".descBx h3 a",
+                            "author": ".metaTx",
+                            "fullNews": ".descBx p",
+                            "newsImg": "figure.avtar a img",
+                            "newsURL": ".descBx a",
+                            "date": None,
+                        }
+                    },
+                ],
             },
             {
                 "vulnerability": [
@@ -62,8 +92,18 @@ class CyberNews:
                             "newsURL": "a.story-link",
                             "date": ".item-label",
                         }
-                    }
-                ]
+                    },
+                    {
+                        "https://ciso.economictimes.indiatimes.com/news/email-security": {
+                            "headlines": ".descBx h3 a",
+                            "author": ".metaTx",
+                            "fullNews": ".descBx p",
+                            "newsImg": "figure.avtar a img",
+                            "newsURL": ".descBx a",
+                            "date": None,
+                        }
+                    },
+                ],
             },
             {
                 "malware": [
@@ -82,7 +122,7 @@ class CyberNews:
             {
                 "security": [
                     {
-                        "https://telecom.economictimes.indiatimes.com/tag/hacking": {
+                        "https://ciosea.economictimes.indiatimes.com/news/security": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -92,7 +132,7 @@ class CyberNews:
                         }
                     },
                     {
-                        "https://cio.economictimes.indiatimes.com/news/digital-security": {
+                        "https://telecom.economictimes.indiatimes.com/tag/hacking": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -106,7 +146,7 @@ class CyberNews:
             {
                 "cloud": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/cloud-computing": {
+                        "https://ciosea.economictimes.indiatimes.com/news/cloud-computing": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -120,17 +160,7 @@ class CyberNews:
             {
                 "tech": [
                     {
-                        "https://telecom.economictimes.indiatimes.com/tag/digitalindia": {
-                            "headlines": ".descBx h3 a",
-                            "author": ".metaTx",
-                            "fullNews": ".descBx p",
-                            "newsImg": "figure.avtar a img",
-                            "newsURL": ".descBx a",
-                            "date": None,
-                        }
-                    },
-                    {
-                        "https://cio.economictimes.indiatimes.com/tag/next+gen+tech": {
+                        "https://ciosea.economictimes.indiatimes.com/news/consumer-tech": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -144,7 +174,7 @@ class CyberNews:
             {
                 "iot": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/internet-of-things": {
+                        "https://ciosea.economictimes.indiatimes.com/news/internet-of-things": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -152,13 +182,13 @@ class CyberNews:
                             "newsURL": ".descBx a",
                             "date": None,
                         }
-                    }
+                    },
                 ]
             },
             {
                 "bigData": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/big-data": {
+                        "https://ciosea.economictimes.indiatimes.com/news/big-data": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -168,7 +198,7 @@ class CyberNews:
                         }
                     },
                     {
-                        "https://cio.economictimes.indiatimes.com/news/data-center": {
+                        "https://ciosea.economictimes.indiatimes.com/news/data-center": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -182,7 +212,7 @@ class CyberNews:
             {
                 "business": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/business-analytics": {
+                        "https://ciosea.economictimes.indiatimes.com/news/business-analytics": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -196,7 +226,7 @@ class CyberNews:
             {
                 "mobility": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/mobility": {
+                        "https://ciosea.economictimes.indiatimes.com/tag/mobility": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -210,7 +240,7 @@ class CyberNews:
             {
                 "research": [
                     {
-                        "https://cio.economictimes.indiatimes.com/tag/research": {
+                        "https://ciosea.economictimes.indiatimes.com/tag/research": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -224,7 +254,7 @@ class CyberNews:
             {
                 "socialMedia": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/social-media": {
+                        "https://telecom.economictimes.indiatimes.com/search/social": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",
@@ -238,7 +268,17 @@ class CyberNews:
             {
                 "corporate": [
                     {
-                        "https://cio.economictimes.indiatimes.com/news/corporate-news": {
+                        "https://ciosea.economictimes.indiatimes.com/news/corporate": {
+                            "headlines": ".descBx h3 a",
+                            "author": ".metaTx",
+                            "fullNews": ".descBx p",
+                            "newsImg": "figure.avtar a img",
+                            "newsURL": ".descBx a",
+                            "date": None,
+                        }
+                    },
+                    {
+                        "https://telecom.economictimes.indiatimes.com/news/industry": {
                             "headlines": ".descBx h3 a",
                             "author": ".metaTx",
                             "fullNews": ".descBx p",

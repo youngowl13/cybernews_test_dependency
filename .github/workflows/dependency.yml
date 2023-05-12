@@ -11,7 +11,7 @@ jobs:
         run: |
           VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
           wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
-          unzip -j dependency-check.zip -d .          
+          unzip -jo dependency-check.zip -d .          
           ls -la
           cd dependency-check
           pwd

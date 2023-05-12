@@ -11,7 +11,7 @@ jobs:
         run: |
           VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
           wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
-          unzip -q dependency-check.zip -d dependency-check
+          unzip -j dependency-check.zip -d .          
           ls -la
           cd dependency-check
           pwd
@@ -34,7 +34,6 @@ jobs:
       - name: run commands
         run: |
             ls
-            mv /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/dependency-check/dependency-check/bin/dependency-check.sh /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/
             pwd
             ls -la
       - name: Run Dependency-Check

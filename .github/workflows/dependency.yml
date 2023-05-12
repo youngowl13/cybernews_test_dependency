@@ -34,9 +34,8 @@ jobs:
       - name: run commands
         run: |
             ls
-            cd dependency-check
-            cd dependency-check
-            cd bin
+            mv /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/dependency-check/dependency-check/bin/dependency-check.sh /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/
+
             pwd
             ls -la
       - name: Run Dependency-Check

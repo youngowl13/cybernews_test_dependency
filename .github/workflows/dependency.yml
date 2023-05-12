@@ -3,7 +3,7 @@ on: [push]
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
-    name: depecheck_test
+    name: Dependency Check Test
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -11,31 +11,21 @@ jobs:
       - name: Download OWASP Dependency-Check
         run: |
           VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
-          curl -s "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
-          unzip dependency-check.zip -d ${{ github.workspace }}
+          wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
+          unzip -q dependency-check.zip -d dependency-check
 
-      - name: Install Python
-        uses: actions/setup-python@v2
+      - name: Install Java
+        uses: actions/setup-java@v2
         with:
-          python-version: '3.x' # Specify the desired Python version
+          java-version: '11'
 
-      - name: Install dependencies
+      - name: Run Dependency-Check
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run OWASP Dependency-Check
-        run: |
-          ${{ github.workspace }}/dependency-check/bin/dependency-check.sh \
-            --scan ${{ github.workspace }} \
-            --format HTML \
-            --project test \
-            --out ${{ github.workspace }}/reports \
-            --failOnCVSS 7 \
-            --enableRetired
+          export PATH=$PATH:$GITHUB_WORKSPACE/dependency-check/bin
+          dependency-check.sh --scan . --format HTML --out reports --failOnCVSS 7 --enableRetired
 
       - name: Upload Test results
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
-           name: Depcheck report
-           path: ${{ github.workspace }}/reports
+          name: Dependency-Check Report
+          path: reports

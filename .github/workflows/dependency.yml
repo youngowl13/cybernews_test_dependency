@@ -8,12 +8,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install OWASP Dependency-Check
+      - name: Download OWASP Dependency-Check
         run: |
-          mkdir -p $HOME/dependency-check
-          cd $HOME/dependency-check
-          wget https://dl.bintray.com/jeremy-long/owasp/dependency-check-6.4.2-release.zip
-          unzip dependency-check-6.4.2-release.zip
+          VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
+          curl -s "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
+          unzip dependency-check.zip -d ${{ github.workspace }}
 
       - name: Install Python
         uses: actions/setup-python@v2
@@ -27,7 +26,7 @@ jobs:
 
       - name: Run OWASP Dependency-Check
         run: |
-          $HOME/dependency-check/bin/dependency-check.sh \
+          ${{ github.workspace }}/dependency-check/bin/dependency-check.sh \
             --scan ${{ github.workspace }} \
             --format HTML \
             --project test \

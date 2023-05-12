@@ -13,6 +13,8 @@ jobs:
           wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
           unzip -q dependency-check.zip -d dependency-check
           ls -la
+          cd dependency-check
+          ls -la
 
       - name: Install Java
         uses: actions/setup-java@v2

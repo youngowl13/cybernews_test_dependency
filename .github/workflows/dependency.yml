@@ -8,6 +8,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install OWASP Dependency-Check
+        run: |
+          mkdir -p $HOME/dependency-check
+          cd $HOME/dependency-check
+          wget https://dl.bintray.com/jeremy-long/owasp/dependency-check-6.4.2-release.zip
+          unzip dependency-check-6.4.2-release.zip
+
       - name: Install Python
         uses: actions/setup-python@v2
         with:
@@ -18,18 +25,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
-        id: Depcheck
-        with:
-          project: 'test'
-          path: '.'
-          format: 'HTML'
-          out: 'reports' # this is the default, no need to specify unless you wish to override it
-          args: >
-            --failOnCVSS 7
+      - name: Run OWASP Dependency-Check
+        run: |
+          $HOME/dependency-check/bin/dependency-check.sh \
+            --scan ${{ github.workspace }} \
+            --format HTML \
+            --project test \
+            --out ${{ github.workspace }}/reports \
+            --failOnCVSS 7 \
             --enableRetired
-            --scan 'requirements.txt' # Specify the location of the requirements.txt file
 
       - name: Upload Test results
         uses: actions/upload-artifact@master

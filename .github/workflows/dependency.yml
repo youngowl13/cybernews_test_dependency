@@ -14,6 +14,7 @@ jobs:
           unzip -q dependency-check.zip -d dependency-check
           ls -la
           cd dependency-check
+          pwd
           ls -la
 
       - name: Install Java
@@ -33,6 +34,9 @@ jobs:
       - name: run commands
         run: |
             ls
+            cd dependency-check
+            pwd
+            ls -la
       
       - name: Run Dependency-Check
         run: |

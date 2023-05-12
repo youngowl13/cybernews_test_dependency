@@ -12,6 +12,7 @@ jobs:
           VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
           wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
           unzip -q dependency-check.zip -d dependency-check
+          ls -la
 
       - name: Install Java
         uses: actions/setup-java@v2
@@ -26,7 +27,11 @@ jobs:
           server-password: ${{ secrets.GITHUB_TOKEN }}
           overwrite-settings: true
           job-status: 'success'
-
+      
+      - name: run commands
+        run: |
+            ls
+      
       - name: Run Dependency-Check
         run: |
           export PATH=$PATH:$GITHUB_WORKSPACE/dependency-check/bin

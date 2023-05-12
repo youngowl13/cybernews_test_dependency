@@ -35,6 +35,7 @@ jobs:
         run: |
             ls
             cd dependency-check
+            cd dependency-check
             pwd
             ls -la
       

@@ -32,7 +32,7 @@ jobs:
       - name: Run Dependency-Check
         run: |
           cd dependency-check/bin
-          bash dependency-check.sh --scan . --format HTML --out reports --failOnCVSS 7 --enableRetired
+          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/cybernews --format HTML --out reports --failOnCVSS 7 --enableRetired
 
       - name: List files in reports directory
         run: |

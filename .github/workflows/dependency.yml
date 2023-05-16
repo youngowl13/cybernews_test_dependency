@@ -7,14 +7,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Download OWASP Dependency-Check
-        run: |
-          wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.2.1/dependency-check-8.2.1-release.zip
-          unzip dependency-check-8.2.1-release.zip
-          ls -la
-          pwd
-
+      
       - name: Install Java
         uses: actions/setup-java@v2
         with:
@@ -29,10 +22,19 @@ jobs:
           overwrite-settings: true
           job-status: 'success'
       
+      - name: Download OWASP Dependency-Check
+        run: |
+          wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.2.1/dependency-check-8.2.1-release.zip
+          unzip dependency-check-8.2.1-release.zip
+          ls -la
+          pwd
+          cd 
+
+      
       - name: Run Dependency-Check
         run: |
           cd dependency-check/bin
-          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/cybernews --format HTML --out reports --failOnCVSS 7 --enableRetired
+          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency --format HTML --out reports --failOnCVSS 7 --enableRetired
 
       - name: List files in reports directory
         run: |

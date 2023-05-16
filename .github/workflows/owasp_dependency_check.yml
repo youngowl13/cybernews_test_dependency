@@ -30,11 +30,17 @@ jobs:
           pwd
           cd 
 
+      - name: Copy Project Directory
+        run: |
+          cp -r /home/runner/work/cybernews_test_dependency/cybernews_test_dependency /tmp/cybernews_test_dependency
+          rm -rf /tmp/cybernews_test_dependency/dependency-check
+          rm -f /tmp/cybernews_test_dependency/dependency-check-8.2.1-release.zip
+
       
       - name: Run Dependency-Check
         run: |
           cd dependency-check/bin
-          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency --format HTML --out reports --enableRetired --enableExperimental --project "property.analyzer.python.enabled=true" --exclude "**/dependency-check,**/dependency-check-8.2.1-release.zip"
+          bash dependency-check.sh --scan /tmp/cybernews_test_dependency --format HTML --out reports --enableRetired --enableExperimental --project "property.analyzer.python.enabled=true" --exclude "**/dependency-check,**/dependency-check-8.2.1-release.zip"
 
       - name: List files in reports directory
         run: |

@@ -48,6 +48,7 @@ jobs:
           cd dependency-check/bin/reports
           chmod 777 dependency-check-report.html
           sed '/<svg/,/<\/svg>/d' dependency-check-report.html > temp.html && mv temp.html dependency-check-report.html
+          { echo '<div style="text-align:center"><img src="https://storage.googleapis.com/tm-assets/images/dark/teachmint-logo-dark.svg" width="200" height="50" /></div>'; cat dependency-check-report.html; } > tmp_report_html.html && mv tmp_report_html.html dependency-check-report.html
 
 
       - name: Upload Test results

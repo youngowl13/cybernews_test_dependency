@@ -29,14 +29,9 @@ jobs:
           ls -la
           pwd
 
-      - name: Set up Dependency-Check alias
-        run: |
-          echo 'alias dependency-check="cd dependency-check/bin && bash dependency-check.sh"' >> $HOME/.bashrc
-          source $HOME/.bashrc
-
       - name: Run Dependency-Check
         run: |
-          dependency-check --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
+          bash /dependency-check/bin/dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
 
       - name: List files in reports directory
         run: |

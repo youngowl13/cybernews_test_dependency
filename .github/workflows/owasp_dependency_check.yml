@@ -34,7 +34,7 @@ jobs:
       - name: Run Dependency-Check
         run: |
           cd dependency-check/bin
-          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency --format HTML --out reports --enableRetired --enableExperimental --project "property.analyzer.python.enabled=true" --exclude "dependency-check,dependency-check-8.2.1-release.zip"
+          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency --format HTML --out reports --enableRetired --enableExperimental --project "property.analyzer.python.enabled=true" --skip "zip,jar"
 
       - name: List files in reports directory
         run: |

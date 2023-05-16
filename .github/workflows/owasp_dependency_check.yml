@@ -47,7 +47,7 @@ jobs:
           ls -la dependency-check/bin/reports
           cd dependency-check/bin/reports
           chmod 777 dependency-check-report.html
-          sed -i 's#How to read the report | Suppressing false positives | Getting Help: github issues#Sponsor/Teachmint Dependencies Analysis#g' dependency-check-report.html
+          sed '/<svg/,/<\/svg>/d' dependency-check-report.html > temp.html && mv temp.html dependency-check-report.html
 
 
       - name: Upload Test results

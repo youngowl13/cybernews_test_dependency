@@ -47,8 +47,8 @@ jobs:
           ls -la dependency-check/bin/reports
           cd dependency-check/bin/reports
           chmod 777 dependency-check-report.html
-          ls -la
-          
+          sed -i 's/How to read the report | Suppressing false positives | Getting Help: github issues/Sponsor/Teachmint Dependencies Analysis/g' dependency-check-report.html
+
 
       - name: Upload Test results
         uses: actions/upload-artifact@v2

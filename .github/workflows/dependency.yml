@@ -1,4 +1,5 @@
 on: [push]
+
 jobs:
   depchecktest:
     runs-on: ubuntu-latest
@@ -28,20 +29,17 @@ jobs:
           overwrite-settings: true
           job-status: 'success'
       
-      - name: run commands
-        run: |
-            ls
-            pwd
-            ls -la
       - name: Run Dependency-Check
         run: |
           cd dependency-check/bin
           bash dependency-check.sh --scan . --format HTML --out reports --failOnCVSS 7 --enableRetired
 
-       
+      - name: List files in reports directory
+        run: |
+          ls -la dependency-check/bin/reports
 
       - name: Upload Test results
         uses: actions/upload-artifact@v2
         with:
           name: Dependency-Check Report
-          path: reports
+          path: dependency-check/bin/reports

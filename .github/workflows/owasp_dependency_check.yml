@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
+
       - name: Install Java
         uses: actions/setup-java@v2
         with:
@@ -21,20 +21,22 @@ jobs:
           server-password: ${{ secrets.GITHUB_TOKEN }}
           overwrite-settings: true
           job-status: 'success'
-      
+
       - name: Download OWASP Dependency-Check
         run: |
           wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.2.1/dependency-check-8.2.1-release.zip
           unzip dependency-check-8.2.1-release.zip
           ls -la
           pwd
-          cd 
 
-      
+      - name: Set up Dependency-Check alias
+        run: |
+          echo 'alias dependency-check="cd dependency-check/bin && bash dependency-check.sh"' >> $HOME/.bashrc
+          source $HOME/.bashrc
+
       - name: Run Dependency-Check
         run: |
-          cd dependency-check/bin
-          bash dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
+          dependency-check --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
 
       - name: List files in reports directory
         run: |

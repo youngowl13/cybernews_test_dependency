@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Dependency-Check
         run: |
-          bash /dependency-check/bin/dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
+          bash dependency-check/bin/dependency-check.sh --scan /home/runner/work/cybernews_test_dependency/cybernews_test_dependency/requirements.txt --format HTML --out reports --enableRetired
 
       - name: List files in reports directory
         run: |

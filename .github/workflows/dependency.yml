@@ -9,12 +9,10 @@ jobs:
 
       - name: Download OWASP Dependency-Check
         run: |
-          VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
-          wget "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" -O dependency-check.zip
-          unzip -jo dependency-check.zip -d .          
+          wget https://github.com/jeremylong/DependencyCheck/releases/download/v8.2.1/dependency-check-8.2.1-release.zip
+          unzip dependency-check-8.2.1-release.zip
           ls -la
           pwd
-          ls -la
 
       - name: Install Java
         uses: actions/setup-java@v2
@@ -37,6 +35,7 @@ jobs:
             ls -la
       - name: Run Dependency-Check
         run: |
+          cd dependency-check/bin
           bash dependency-check.sh --scan . --format HTML --out reports --failOnCVSS 7 --enableRetired
 
        

@@ -25,16 +25,20 @@ jobs:
         run: |
           python3 -m venv bandit-env
           source bandit-env/bin/activate
+
       - name: Install Bandit
         run: pip install bandit
 
       - name: Run Bandit Scan
-        run: bandit -f csv -r . -o bandit_results.csv || echo "::set-output name=ignore_failure::true"
+        run: |
+          bandit -f csv -r . -o bandit_results.csv --exclude bandit-env/
+          echo "::set-output name=ignore_failure::true"
 
       - name: Display Directory Contents
         run: |
           pwd
           ls
+
       - name: Upload Bandit Results
         uses: actions/upload-artifact@v2
         with:

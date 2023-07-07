@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Bandit Scan
         run: |
-          bandit -f csv -r . -o bandit_results.csv --exclude bandit-env/
+          bandit -f csv -r . -o bandit_results.csv --exclude bandit-env/*
           echo "::set-output name=ignore_failure::true"
 
       - name: Display Directory Contents

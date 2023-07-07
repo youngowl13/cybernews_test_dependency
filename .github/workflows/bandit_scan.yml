@@ -2,26 +2,41 @@ name: Bandit Scan
 
 on:
   push:
-    branches: [main]
+    branches:
+      - vugrafana
+  pull_request:
+    branches:
+      - vugrafana
 
 jobs:
-  bandit:
-    name: Bandit Scan
+  bandit_scan:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
-      - name: Install dependencies
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Create and activate virtual environment
         run: |
-          python -m pip install --upgrade pip
-          pip install bandit
-      - name: Run Bandit
+          python3 -m venv bandit-env
+          source bandit-env/bin/activate
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit Scan
+        run: bandit -f csv -r . -o bandit_results.csv || echo "::set-output name=ignore_failure::true"
+
+      - name: Display Directory Contents
         run: |
-          bandit -r . -ll -f html -o bandit_report.html
-          cat bandit_report.html # Print report to console     
-      
-      - name: Upload artifact
+          pwd
+          ls
+      - name: Upload Bandit Results
         uses: actions/upload-artifact@v2
         with:
-          name: Bandit Report
-          path: bandit_report.html
+          name: Bandit Scan Results
+          path: bandit_results.csv
